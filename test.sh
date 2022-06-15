@@ -45,7 +45,7 @@ get_new_tag() {
 git fetch -v
 
 # if branch type is feature
-if [ $branch_type = $feature ]
+if [[ $branch_type == $feature ]]
 then
     echo "inside feature block"
     git checkout develop
@@ -59,7 +59,7 @@ then
         git flow $feature $action_type $branch_name --push
     fi
 # if branch type is bugfix
-elif [ $branch_type = $bugfix ]
+elif [[ $branch_type == $bugfix ]]
 then
     git checkout develop
     git pull -v
@@ -74,7 +74,7 @@ then
         git flow $bugfix $action_type $branch_name --push
     fi
 # if branch type is hotfix
-elif [ $branch_type = $hotfix ]
+elif [[ $branch_type == $hotfix ]]
 then
     git checkout master
     git pull -v
@@ -88,7 +88,7 @@ then
         git flow $hotfix $action_type $tag --push
     fi
 # if branch type is hotfix
-elif [ $branch_type = $release ]
+elif [[ $branch_type == $release ]]
 then
     git checkout develop
     git pull -v
