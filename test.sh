@@ -24,7 +24,7 @@ then
     if [ $action_type=$start ]
     then
         git checkout feature/$branch_name
-        git push -u origin feature/$branch_name -v
+        git push --set-upstream origin feature/$branch_name -v
     elif [ $action_type=$finish ] 
     then
         git push -v
