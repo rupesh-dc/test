@@ -34,6 +34,7 @@ get_new_tag() {
     elif [ $branch_type = $release ]
     then
         release_num=$(($release_num+1))
+        hotfix_num=0
     fi
 
     new_tag=$version_num.$release_num.$hotfix_num
@@ -89,7 +90,7 @@ then
 # if branch type is hotfix
 elif [ $branch_type = $release ]
 then
-    git checkout master
+    git checkout develop
     git pull -v
     tag=$(get_new_tag)
     if [ $action_type = $start ]
